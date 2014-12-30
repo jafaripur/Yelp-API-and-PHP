@@ -2,10 +2,15 @@
 
 require __DIR__ . '/lib/Yelp.php';
 
+/*
 $consumerKey = 'YOUR-CONSUMER-KEY';
 $consumerSecret = 'YOUR-CONSUMER-SECRET';
 $tokenKey = 'YOUR-TOKEN-KEY';
 $tokenSecret = 'YOUR-TOKEN-SECRET';
+*/
+
+// this file contain my own api key, You can comment thi file include and uncomment above code for your personal API key
+require __DIR__ . '/private.php';
 
 $term = filter_input(INPUT_POST, 'term');
 

@@ -4,7 +4,6 @@
  */
 var yelp_obj = null;
 var yelp_marker = new Array();
-var yelp_marker_image;
 var yelp_infowindow;
 var map;
 /**
@@ -18,13 +17,6 @@ function initialize() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    yelp_marker_image = {
-        url: 'web/images/marker_star.png',
-        size: new google.maps.Size(20, 29),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(15, 29)
-        //scaledSize: new google.maps.Size(20, 29)
-    };
     yelp_infowindow = new google.maps.InfoWindow();
 }
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -82,7 +74,16 @@ function createMarker(biz, latitude, longitude) {
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(latitude, longitude),
         map: map,
-        icon: yelp_marker_image,
+        //icon: yelp_marker_image,
+        icon: {
+            // Star
+            path: 'M 0,-24 6,-7 24,-7 10,4 15,21 0,11 -15,21 -10,4 -24,-7 -6,-7 z',
+            fillColor: '#ffff00',
+            fillOpacity: 1,
+            scale: 1/4,
+            strokeColor: '#bd8d2c',
+            strokeWeight: 1
+        },
         title: biz.name
     });
 
