@@ -6,13 +6,17 @@
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <link href="web/css/style.css" rel="stylesheet">
         <script src="//cdn.jsdelivr.net/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>        
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
     </head>
     <body>
-        <form action="#" onsubmit="return yelp_search();" style="margin:20px;">
-            <input type="text" id="yelp_term" placeholder="Restaurants, Sport,...">
+        <form id="myForm" action="#" onsubmit="return search();" style="margin:20px;">
+			<div>
+				<input id="yelp_method" type="radio" name="method" value="0" checked><label for="yelp_method">Using Yelp</label>
+				<input id="google_place_method" type="radio" name="method" value="1"><label for="google_place_method">Using Gooogle place</label>
+			</div>
+            <input type="text" id="term" placeholder="Restaurants, Sport,...">
             <button id="yelp_filter" type="submit" class="btn btn-primary">Search</button>
-            <button id="yelp_clear_map_btn" type="button" onclick="yelp_clear_map();">Clear</button>
+            <button id="yelp_clear_map_btn" type="button" onclick="clearMap();">Clear</button>
             <div id="yelp_message"></div>
         </form>
         <div id="map-canvas"></div>
